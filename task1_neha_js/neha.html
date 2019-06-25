@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>bitsbeat: task1</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=display-width, initial-scale=1">
+        <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"> -->
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+
+    </head>
+
+    <body>
+             <!-- align="center" yo nikalekoh1 h4 bata-->
+        <h1 class="title" >GADGET SIGN UP FORM</h1>
+
+        <div class="main">
+                <script src="loginform.js"></script>
+            <div class="row">
+                <div class="leftcontain">
+                    <h2 class="subtitle"> MANAGE YOUR GADGETS ACCOUNT</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel, aliquid nam quisquam hic quo ut tempore non enim voluptate aperiam velit repellat. Modi quibusdam, dolorum exercitationem perferendis quidem eos?</p>
+                        <img class="image" src="img/image1.png" alt="laptop picture">
+
+                </div>
+
+
+                <div class="rightcontain">
+                    <h2 class="subtitle">SIGN UP HERE</h2>
+                        <form action="newpage.html" class="box" id="myform" onsubmit="return validateEmail()">
+                            <div class="naam">
+                                <span class="fa fa-user-o" aria-hidden="true">
+                                    <input type="text" id="name" name="Name" placeholder="Name"  required><br/>
+                                </span>
+                            </div>
+                            <div class="no">
+                                <span class="fa fa-phone" aria-hidden="true">
+                                    <input type="number" id="phone-no" name="Num" placeholder="Phone" required><br/>
+                                </span>
+                            </div>
+                            <div class="mail"> <!---changing span to i and adding span in all-->
+                                <span>
+                                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                    <input type="text" id="email" name="email" placeholder="Email Address"  required><br/>
+                                    <span id="message"></span>
+                                    
+                                </span>
+
+
+
+                            </div>
+                            <div class="secure">
+                                <span class="fa fa-lock" aria-hidden="true">
+                                    
+                                    <input type="password" id="pass" placeholder="Password" >
+                                    <i class="fa fa-eye" id="eye"></i>
+                                    <!-- <input type="checkbox" onclick="Toggle()">
+                                    <b>Show Password</b><br/> -->
+                                    <span id="message1"></span>
+                                </span>
+                            </div>
+
+                            <div class="secure">
+                                <span class="fa fa-lock" aria-hidden="true">
+                                    <input type="password" id="confirm-pass" placeholder="Confirm Password" ><br/>
+                                    
+                                </span>
+                            </div>
+
+                            <div class="two1">
+                                <div class="first">
+                                        <input type="checkbox" id="check" onclick="checkfunction()" > Remeber me
+                                </div>
+                                <div class="second">
+                                        <span class="forget">Forget <a href=""> password ??</a></span>
+
+                                </div>
+                            </div>
+
+                            <div class="btn">
+                                    <input id="submit" type="submit" name="sub" value="Sign Up" onclick="submitted()" disabled>
+                            </div>
+                            <div class="end">
+                                    Don't have an account..?
+                                    <span>
+                                        <a href>Login Here</a>
+                                    </span>
+                            </div>
+
+                        </form>
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+        <script>
+            var pwd=document.getElementById("pass");
+            var eye= document.getElementById("eye");
+
+            eye.addEventListener("click", togglePass);
+
+            function togglePass(){
+                eye.classList.toggle('active');
+                if(pwd.type=="password"){
+                    pwd.type="text";
+                }
+            }
+
+            function checkfunction(){
+                var idnames= ["name","number","email","pass","confirm-pass"];
+                var fieldname;
+                let checkval = 0;
+
+
+                if(document.getElementById("check").checked == true){
+                    // console.log('1stifcondition');
+                    for (i=0; i<5 ; i++){
+                        fieldname = idnames[i];
+
+                        if( document.getElementById("myform").elements[i].value != ""){
+                            checkval += 1;
+
+                        }
+
+                    }
+
+
+                    if (checkval === 5){
+                        document.getElementById('submit').disabled = false;
+
+                    }
+
+                    else{
+                        document.getElementById('submit').disabled = true;
+
+                    }
+                }
+            }
+
+            function submitted(){
+                var inputName= document.getElementById("name").value;
+                var inputNum= document.getElementById("phone-no").value;
+                var inputEmail=document.getElementById("email").value;
+                var inputPass=document.getElementById("pass").value;
+
+                localStorage.setItem("name", inputName);
+                localStorage.setItem("phone-no", inputNum);
+                localStorage.setItem("email", inputEmail);
+                localStorage.setItem("pass", inputPass);
+            }
+           
+
+        </script>
+    </body>
+</html>
