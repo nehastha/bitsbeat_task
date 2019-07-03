@@ -135,7 +135,7 @@ uSubmit.addEventListener('click',function(e){
             Address: document.getElementById('userRegaddress').value,
             Phone: document.getElementById('userRegphone').value,
             Email: document.getElementById('userRegemail').value,
-            Password: encrypt(document.getElementById('userRegpassword').value) 
+            Password: encrypt(document.getElementById('userRegpassword').value, "neha") 
         }
         
         let length = localStorage.length;
